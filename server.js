@@ -6,6 +6,10 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const User = require('./Users');
 const Movie = require('./Movies'); // You're not using Movie, consider removing it
+const mongoose = require('mongoose');
+const dotenv = require('dotenv'); // to use environment variables
+
+dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -15,6 +19,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 
 const router = express.Router();
+
+const mongoURI = 'mongodb+srv://node:test123@assignment3.ryd8t.mongodb.net/?retryWrites=true&w=majority&appName=Assignment3';
+// Connect to MongoDB using Mongoose
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => {
+    console.log('MongoDB connected');
+  })
+  .catch((err) => {
+    console.error('MongoDB connection error:', err);
+  });
 
 // Removed getJSONObjectForMovieRequirement as it's not used
 
