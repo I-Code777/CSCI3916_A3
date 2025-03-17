@@ -1,4 +1,8 @@
 # Assignment Three
+
+## Notice
+I ran into a few major issues with trying to get mongodb working, I'll continue to work on it for the homework make up.
+
 ## Purpose
 The purpose of this assignment is to get comfortable working with a NoSQL database (MongoDB). 
 
